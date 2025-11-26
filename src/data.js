@@ -236,7 +236,160 @@ export const cards = [
       </ul>
     `,
     keywords: ['Formes Normales', 'Redondance', 'Intégrité']
+  },
+  {
+    id: 18,
+    category: 'Database',
+    question: 'Requêtes Complexes SQL',
+    answer: `
+      <div style="text-align: left;">
+        <p><strong>Sous-requêtes :</strong> Une requête imbriquée dans une autre (ex: <code>WHERE id IN (SELECT ...)</code>).</p>
+        <p><strong>Agrégations :</strong></p>
+        <ul style="margin-bottom: 0.5rem;">
+          <li><code>GROUP BY</code> : Regrouper les résultats par colonne.</li>
+          <li><code>HAVING</code> : Filtrer <em>après</em> une agrégation (contrairement au WHERE).</li>
+        </ul>
+        <p><strong>Opérateurs Ensemblistes :</strong></p>
+        <ul>
+          <li><code>UNION</code> : Combine les résultats (sans doublons).</li>
+          <li><code>INTERSECT</code> : Résultats communs.</li>
+          <li><code>EXCEPT</code> : Résultats présents dans A mais pas B.</li>
+        </ul>
+      </div>
+    `,
+    keywords: ['Subqueries', 'GroupBy', 'Having']
+  },
+  {
+    id: 19,
+    category: 'Database',
+    question: 'Fonctions SQL',
+    answer: `
+      <div style="text-align: left;">
+        <p><strong>Fonctions d'Agrégation (sur un groupe) :</strong></p>
+        <ul style="margin-bottom: 1rem;">
+          <li><code>COUNT()</code> : Compte les lignes.</li>
+          <li><code>SUM()</code>, <code>AVG()</code> : Somme, Moyenne.</li>
+          <li><code>MIN()</code>, <code>MAX()</code> : Minimum, Maximum.</li>
+        </ul>
+        <p><strong>Fonctions Scalaires (sur une ligne) :</strong></p>
+        <ul>
+          <li>Texte : <code>UPPER()</code>, <code>LOWER()</code>, <code>CONCAT()</code>.</li>
+          <li>Math : <code>ROUND()</code>, <code>ABS()</code>.</li>
+          <li>Date : <code>NOW()</code>, <code>DATEDIFF()</code>, <code>YEAR()</code>.</li>
+        </ul>
+      </div>
+    `,
+    keywords: ['Count', 'Sum', 'Scalar']
+  },
+  // Architecture
+  {
+    id: 20,
+    category: 'Architecture',
+    question: 'Couches Architecturales',
+    answer: `
+      <p>Séparation des responsabilités en couches globales (ex: Métier, UI, Connexion BDD).</p>
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>Avantages :</strong> Maintenabilité, Scalabilité, Évolutions facilitées.</li>
+        <li><strong>Principe :</strong> Chaque couche a un rôle précis et ne communique qu'avec les couches adjacentes.</li>
+      </ul>
+    `,
+    keywords: ['Séparation', 'Responsabilité', 'Scalabilité']
+  },
+  {
+    id: 21,
+    category: 'Architecture',
+    question: 'Pattern MVC',
+    answer: `
+      <div style="text-align: left;">
+        <p><strong>Model :</strong> Le métier et les données.</p>
+        <p><strong>View :</strong> L'affichage (ce que voit l'utilisateur).</p>
+        <p><strong>Controller :</strong> Orchestrateur, fait le lien entre Model et View.</p>
+        <p><em>Bonne pratique :</em> Ajouter des <strong>Services</strong> ou <strong>Interfaces</strong> pour éviter les "Fat Controllers" et déléguer la logique métier complexe.</p>
+      </div>
+    `,
+    keywords: ['Orchestration', 'Séparation', 'Pattern']
+  },
+  {
+    id: 22,
+    category: 'Architecture',
+    question: 'Monolithe vs Microservices',
+    answer: `
+      <div style="text-align: left;">
+        <p><strong>Monolithe :</strong> Un seul projet contient tout (Front + Back ou Back complet). Simple mais difficile à scaler.</p>
+        <p><strong>Microservices :</strong> Séparation par fonctionnalité (mini-apps déployées séparément).</p>
+        <ul style="margin-top: 0.5rem;">
+          <li><strong>Avantages :</strong> Scalabilité fine, technos hétérogènes.</li>
+          <li><strong>Coûts :</strong> Complexité d'orchestration, performance (réseau), sécurité.</li>
+        </ul>
+      </div>
+    `,
+    keywords: ['Déploiement', 'Scalabilité', 'Complexité']
+  },
+  {
+    id: 23,
+    category: 'Architecture',
+    question: 'Couplage et Cohésion',
+    answer: `
+      <div style="text-align: left;">
+        <p><strong>Faible Couplage (Objectif) :</strong> Limiter les dépendances entre modules. Facilite la modification d'un module sans casser les autres.</p>
+        <p><strong>Forte Cohésion (Objectif) :</strong> Une classe/module doit avoir une responsabilité unique et grouper les éléments logiquement liés (Encapsulation).</p>
+      </div>
+    `,
+    keywords: ['Dépendances', 'Qualité', 'Maintenance']
+  },
+  {
+    id: 24,
+    category: 'Architecture',
+    question: 'Design Patterns',
+    answer: `
+      <p>Solutions génériques à des problèmes récurrents de conception.</p>
+      <p><strong>Singleton :</strong> Garantit une instance unique d'une classe.</p>
+      <p><em>Attention :</em> Considéré comme un <strong>Anti-pattern</strong> car il rend le code difficilement testable (état global partagé). Utilisé parfois par les ORM.</p>
+    `,
+    keywords: ['Singleton', 'Réutilisabilité', 'Anti-pattern']
+  },
+  {
+    id: 25,
+    category: 'Architecture',
+    question: 'Clean / Hexagonale Architecture',
+    answer: `
+      <p>Architecture centrée sur le <strong>Domaine Métier</strong> (au centre), isolé de l'extérieur (UI, BDD, API).</p>
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>Principe d'Inversion de Dépendance :</strong> Le centre ne dépend de rien (définit des Interfaces). L'extérieur dépend du centre (implémente les Interfaces).</li>
+        <li><strong>Couches :</strong> Domain -> Use Cases -> Adapters (Controllers) -> Infra.</li>
+      </ul>
+    `,
+    keywords: ['Inversion Dépendance', 'Domaine', 'Isolation']
+  },
+  {
+    id: 26,
+    category: 'Architecture',
+    question: 'Principes SOLID',
+    answer: `
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>S</strong>ingle Responsibility (Responsabilité unique).</li>
+        <li><strong>O</strong>pen/Closed (Ouvert à l'extension, fermé à la modif).</li>
+        <li><strong>L</strong>iskov Substitution (Sous-types substituables).</li>
+        <li><strong>I</strong>nterface Segregation (Interfaces spécifiques).</li>
+        <li><strong>D</strong>ependency Inversion (Dépendre des abstractions).</li>
+      </ul>
+    `,
+    keywords: ['Qualité', 'POO', 'Maintenance']
+  },
+  {
+    id: 27,
+    category: 'Architecture',
+    question: 'Complexité Algorithmique',
+    answer: `
+      <p>Mesure de la performance d'un algo (Temps ou Mémoire) en fonction de la taille de l'entrée (n).</p>
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>O(1) Constant :</strong> Temps identique quelque soit n (Objectif).</li>
+        <li><strong>O(log n) Logarithmique :</strong> Très performant (ex: recherche dichotomique).</li>
+        <li><strong>O(n) Linéaire :</strong> Temps proportionnel à n (ex: boucle simple).</li>
+      </ul>
+    `,
+    keywords: ['Performance', 'Big O', 'Optimisation']
   }
 ];
 
-export const categories = ['All', 'Agile', 'UI/UX', 'Merise', 'UML', 'Database'];
+export const categories = ['All', 'Agile', 'UI/UX', 'Merise', 'UML', 'Database', 'Architecture'];
