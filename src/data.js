@@ -51,17 +51,34 @@ export const cards = [
   {
     id: 6,
     category: 'Merise',
-    question: 'Différence MCD vs MLD',
+    question: 'Qu\'est-ce qu\'un MCD ?',
     answer: `
-      <div style="text-align: left;">
-        <p><strong>MCD (Modèle Conceptuel de Données) :</strong><br>
-        Niveau métier. On parle d'<strong>Entités</strong> et d'<strong>Associations</strong>. Il est agnostique de la technique (pas de notion de clé étrangère ici, mais d'identifiants).</p>
-        <br>
-        <p><strong>MLD (Modèle Logique de Données) :</strong><br>
-        Niveau base de données relationnelle. On parle de <strong>Tables</strong>, <strong>Colonnes</strong>, <strong>Clés Primaires</strong> et <strong>Clés Étrangères</strong>.</p>
-      </div>
+      <p><strong>Modèle Conceptuel de Données</strong></p>
+      <p>C'est une représentation <strong>métier</strong> et abstraite des données, indépendante de la base de données finale (agnostique).</p>
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>Entité :</strong> Objet de gestion (ex: Client).</li>
+        <li><strong>Propriété :</strong> Information élémentaire (ex: Nom).</li>
+        <li><strong>Identifiant :</strong> Propriété unique (soulignée).</li>
+        <li><strong>Association :</strong> Lien entre entités avec des cardinalités (ex: 0,n).</li>
+      </ul>
     `,
-    keywords: ['Conception', 'Données', 'Abstraction']
+    keywords: ['Conceptuel', 'Entité', 'Métier']
+  },
+  {
+    id: 17,
+    category: 'Merise',
+    question: 'Qu\'est-ce qu\'un MLD ?',
+    answer: `
+      <p><strong>Modèle Logique de Données</strong></p>
+      <p>C'est la traduction du MCD vers une structure de <strong>base de données relationnelle</strong>.</p>
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>Table :</strong> Correspond à l'entité.</li>
+        <li><strong>Colonne :</strong> Correspond à la propriété.</li>
+        <li><strong>Clé Primaire (PK) :</strong> Identifiant unique de la table.</li>
+        <li><strong>Clé Étrangère (FK) :</strong> Référence à une autre table pour gérer les relations.</li>
+      </ul>
+    `,
+    keywords: ['Logique', 'Relationnel', 'Tables']
   },
   {
     id: 7,
@@ -100,8 +117,69 @@ export const cards = [
     `,
     keywords: ['Structure', 'POO', 'Relations']
   },
+  {
+    id: 9,
+    category: 'UML',
+    question: 'Diagramme de Cas d\'Utilisation (Use Case)',
+    answer: `
+      <p>Il décrit les fonctionnalités du système du point de vue de l'utilisateur.</p>
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>Acteurs :</strong> Utilisateurs ou systèmes externes interagissant avec l'application.</li>
+        <li><strong>Cas d'utilisation :</strong> Fonctionnalité ou objectif à atteindre.</li>
+        <li><strong>Relations :</strong>
+          <ul>
+            <li><strong>Include :</strong> Le cas A inclut TOUJOURS le cas B (ex: S'authentifier).</li>
+            <li><strong>Extend :</strong> Le cas B est optionnel et étend le cas A sous certaines conditions.</li>
+          </ul>
+        </li>
+      </ul>
+    `,
+    keywords: ['Fonctionnel', 'Acteurs', 'Include/Extend']
+  },
+  {
+    id: 16,
+    category: 'UML',
+    question: 'Diagramme de Séquence',
+    answer: `
+      <p>Représente les interactions entre objets (ou acteurs) selon un <strong>point de vue temporel</strong>.</p>
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li>Montre <strong>l'ordre chronologique</strong> des messages échangés.</li>
+        <li><strong>Ligne de vie :</strong> Période durant laquelle l'objet existe.</li>
+        <li><strong>Messages :</strong> Synchrones (bloquants), Asynchrones, de Retour.</li>
+      </ul>
+      <p><em>Utile pour détailler la logique d'un scénario précis d'un Cas d'Utilisation.</em></p>
+    `,
+    keywords: ['Chronologie', 'Messages', 'Temps']
+  },
 
   // Base de Données
+  {
+    id: 10,
+    category: 'Database',
+    question: 'Différence DDL vs DML',
+    answer: `
+      <div style="text-align: left;">
+        <p><strong>DDL (Data Definition Language) :</strong><br>
+        Agit sur la <strong>STRUCTURE</strong> de la base.</p>
+        <ul style="margin-bottom: 1rem;">
+          <li><code>CREATE</code> : Créer (table, vue...)</li>
+          <li><code>ALTER</code> : Modifier la structure</li>
+          <li><code>DROP</code> : Supprimer définitivement</li>
+          <li><code>TRUNCATE</code> : Vider une table</li>
+        </ul>
+        
+        <p><strong>DML (Data Manipulation Language) :</strong><br>
+        Agit sur les <strong>DONNÉES</strong> (Lignes).</p>
+        <ul>
+          <li><code>SELECT</code> : Lire / Interroger</li>
+          <li><code>INSERT</code> : Ajouter des données</li>
+          <li><code>UPDATE</code> : Mettre à jour</li>
+          <li><code>DELETE</code> : Supprimer des données</li>
+        </ul>
+      </div>
+    `,
+    keywords: ['SQL', 'Structure vs Données']
+  },
   {
     id: 11,
     category: 'Database',
