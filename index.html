@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CDA Revision Cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>CDA Revisions</h1>
+      <p>Master your concepts</p>
+    </header>
+
+    <nav id="filters">
+      <!-- Categories injected here -->
+    </nav>
+
+    <main id="card-grid">
+      <!-- Cards injected here -->
+    </main>
+  </div>
+
+  <!-- Modal Structure -->
+  <dialog id="card-modal">
+    <div class="modal-content">
+      <button id="close-modal" aria-label="Close">&times;</button>
+      <div class="modal-header">
+        <span id="modal-category" class="card-category"></span>
+        <h2 id="modal-question"></h2>
+      </div>
+      <div class="modal-body">
+        <div id="modal-answer"></div>
+        <div id="modal-keywords" class="card-keywords"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
