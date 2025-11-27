@@ -389,7 +389,154 @@ export const cards = [
       </ul>
     `,
     keywords: ['Performance', 'Big O', 'Optimisation']
+  },
+  // Architecture (Suite)
+  {
+    id: 28,
+    category: 'Architecture',
+    question: 'Rôles : Controller vs Service vs Repository',
+    answer: `
+      <div style="text-align: left;">
+        <p><strong>Controller :</strong> Point d'entrée. Reçoit la requête (HTTP), valide les entrées sommairement, appelle le Service, et retourne la réponse (JSON/Vue) ou une erreur HTTP.</p>
+        <p><strong>Service :</strong> Cœur du métier. Contient la logique business, les calculs, les transformations. Orchestre les appels aux Repositories ou services externes.</p>
+        <p><strong>Repository :</strong> Accès aux données. Interface avec la BDD (CRUD). Gère la sérialisation/désérialisation et parfois le cache.</p>
+      </div>
+    `,
+    keywords: ['Responsabilité', 'Couches', 'Organisation']
+  },
+
+  // API
+  {
+    id: 29,
+    category: 'API',
+    question: 'Principes API REST',
+    answer: `
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>Stateless :</strong> Le serveur ne garde aucun état client entre deux requêtes (chaque requête contient tout le nécessaire, ex: Token).</li>
+        <li><strong>Verbes HTTP :</strong> Utilisation sémantique (GET=Lire, POST=Créer, PUT/PATCH=Modifier, DELETE=Supprimer).</li>
+        <li><strong>Ressources :</strong> Identifiées par des URI uniques (ex: /users/123).</li>
+        <li><strong>Interface Uniforme :</strong> Réponses standardisées (JSON/XML).</li>
+      </ul>
+    `,
+    keywords: ['Stateless', 'Verbes HTTP', 'Ressources']
+  },
+  {
+    id: 30,
+    category: 'API',
+    question: 'PUT vs PATCH',
+    answer: `
+      <div style="text-align: left;">
+        <p><strong>PUT (Remplacement complet) :</strong></p>
+        <ul style="margin-bottom: 0.5rem;">
+          <li>Envoie la ressource <strong>entière</strong>. Si un champ manque, il est remis à null/défaut.</li>
+          <li><strong>Idempotent :</strong> Faire 10 fois la requête donne le même résultat que la faire 1 fois.</li>
+        </ul>
+        <p><strong>PATCH (Modification partielle) :</strong></p>
+        <ul>
+          <li>Envoie uniquement les champs à modifier. Plus performant (moins de data).</li>
+          <li><strong>Non Idempotent</strong> (théoriquement, bien que souvent implémenté comme tel).</li>
+        </ul>
+      </div>
+    `,
+    keywords: ['Idempotence', 'Performance', 'Update']
+  },
+  {
+    id: 31,
+    category: 'API',
+    question: 'Codes et Gestion des Erreurs',
+    answer: `
+      <div style="text-align: left;">
+        <p><strong>Codes HTTP :</strong></p>
+        <ul style="margin-bottom: 0.5rem;">
+          <li><strong>2xx :</strong> Succès (200 OK, 201 Created).</li>
+          <li><strong>4xx :</strong> Erreur Client (400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found).</li>
+          <li><strong>5xx :</strong> Erreur Serveur (500 Internal Server Error).</li>
+        </ul>
+        <p><strong>Gestion :</strong></p>
+        <ul>
+          <li>Ne jamais exposer une 500 brute (faille sécu). Logger l'erreur et renvoyer un message générique.</li>
+          <li>Valider les entrées dans le Controller pour renvoyer des 400 précises.</li>
+        </ul>
+      </div>
+    `,
+    keywords: ['Status Codes', 'Sécurité', 'Validation']
+  },
+
+  // Security
+  {
+    id: 32,
+    category: 'Security',
+    question: 'Authentification vs Autorisation',
+    answer: `
+      <div style="text-align: left;">
+        <p><strong>Authentification (Qui es-tu ?) :</strong></p>
+        <p>Vérification de l'identité (Login/Mdp, Clé API, Biométrie). <em>"Je suis l'utilisateur 123"</em>.</p>
+        <br>
+        <p><strong>Autorisation (Que peux-tu faire ?) :</strong></p>
+        <p>Vérification des droits/permissions d'accès aux ressources. <em>"L'utilisateur 123 a le droit de supprimer ce post"</em>.</p>
+      </div>
+    `,
+    keywords: ['Identité', 'Permissions', 'Accès']
+  },
+  {
+    id: 33,
+    category: 'Security',
+    question: 'Méthodes d\'Authentification',
+    answer: `
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>Session/Cookie :</strong> Stateful. Le serveur garde la session en mémoire.</li>
+        <li><strong>JWT (JSON Web Token) :</strong> Stateless. Le token signé contient les infos (payload). Le serveur vérifie juste la signature.</li>
+        <li><strong>OAuth2 :</strong> Délégation d'authentification (ex: "Se connecter avec Google").</li>
+        <li><strong>2FA (MFA) :</strong> Double facteur (Ce que je sais + Ce que je possède).</li>
+      </ul>
+    `,
+    keywords: ['JWT', 'OAuth2', 'Stateless']
+  },
+
+  // Database (Suite)
+  {
+    id: 34,
+    category: 'Database',
+    question: 'ORM (Object Relational Mapping)',
+    answer: `
+      <p>Technique de programmation pour convertir des données entre un langage objet (Java, PHP, JS) et une base relationnelle (SQL).</p>
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>Avantages :</strong> Productivité (moins de SQL à écrire), Sécurité (échappement auto), Abstraction de la BDD.</li>
+        <li><strong>Inconvénients :</strong> Performance (requêtes générées parfois lourdes), Effet "Boîte noire", Difficulté sur requêtes complexes.</li>
+      </ul>
+    `,
+    keywords: ['Abstraction', 'Productivité', 'Performance']
+  },
+
+  // Code Quality
+  {
+    id: 35,
+    category: 'Code Quality',
+    question: 'Clean Code',
+    answer: `
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>Nommage :</strong> Variables et fonctions explicites (ex: <code>daysUntilExpiration</code> vs <code>d</code>).</li>
+        <li><strong>Fonctions :</strong> Courtes, font une seule chose.</li>
+        <li><strong>Commentaires :</strong> Le code doit s'expliquer lui-même. Commenter le "Pourquoi", pas le "Comment".</li>
+        <li><strong>DRY (Don't Repeat Yourself) :</strong> Éviter la duplication.</li>
+        <li><strong>Prévisibilité :</strong> Pas d'effets de bord inattendus.</li>
+      </ul>
+    `,
+    keywords: ['Lisibilité', 'Maintenance', 'DRY']
+  },
+  {
+    id: 36,
+    category: 'Code Quality',
+    question: 'Refactoring',
+    answer: `
+      <p>Processus de modification de la structure interne du code sans changer son comportement externe.</p>
+      <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><strong>But :</strong> Améliorer la lisibilité, réduire la complexité, faciliter la maintenance (réduire la dette technique).</li>
+        <li><strong>Pré-requis indispensable :</strong> Avoir des <strong>Tests Unitaires</strong> solides pour garantir la non-régression.</li>
+      </ul>
+    `,
+    keywords: ['Dette Technique', 'Maintenance', 'Tests']
   }
 ];
 
-export const categories = ['All', 'Agile', 'UI/UX', 'Merise', 'UML', 'Database', 'Architecture'];
+export const categories = ['All', 'Agile', 'UI/UX', 'Merise', 'UML', 'Database', 'Architecture', 'API', 'Security', 'Code Quality'];
